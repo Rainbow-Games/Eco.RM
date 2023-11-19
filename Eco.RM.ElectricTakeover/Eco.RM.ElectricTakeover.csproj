@@ -8,8 +8,60 @@
 
   <ItemGroup>
     <Folder Include="Components\" />
-    <Folder Include="Items\" />
     <Folder Include="WorldObjects\" />
   </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Eco.Core">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.EM.Framework">
+      <HintPath>..\..\..\EM-Framework\bin\10\Framework\net7.0\Eco.EM.Framework.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Gameplay">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Gameplay.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.ModKit">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.ModKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Mods">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Mods.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Networking.ENet">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Networking.ENet.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Plugins">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Shared">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Simulation">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Stats">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.Stats.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.WebServer">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.WebServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.World">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.WorldGenerator">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\Eco.WorldGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="EcoServer">
+      <HintPath>..\..\..\..\..\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2811\ReferenceAssemblies\EcoServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd $(TargetDir)&#xD;&#xA;del *.config&#xD;&#xA;del *.json&#xD;&#xA;del A*&#xD;&#xA;del B*&#xD;&#xA;del C*&#xD;&#xA;del D*&#xD;&#xA;del F*&#xD;&#xA;del G*&#xD;&#xA;del H*&#xD;&#xA;del I*&#xD;&#xA;del J*&#xD;&#xA;del K*&#xD;&#xA;del L*&#xD;&#xA;del M*&#xD;&#xA;del N*&#xD;&#xA;del O*&#xD;&#xA;del P*&#xD;&#xA;del Q*&#xD;&#xA;del R*&#xD;&#xA;del S*&#xD;&#xA;del T*&#xD;&#xA;del U*&#xD;&#xA;del V*&#xD;&#xA;del W*&#xD;&#xA;del X*&#xD;&#xA;del Y*&#xD;&#xA;del Z*&#xD;&#xA;del Eco.Core.dll&#xD;&#xA;del Eco.Gameplay.dll&#xD;&#xA;del Eco.Modkit.dll&#xD;&#xA;del Eco.Mods.dll&#xD;&#xA;del Eco.Networking.ENet.dll&#xD;&#xA;del Eco.Plugins.dll&#xD;&#xA;del Eco.Shared.dll&#xD;&#xA;del Eco.Simulation.dll&#xD;&#xA;del Eco.Stats.dll&#xD;&#xA;del Eco.WebServer.dll&#xD;&#xA;del Eco.World.dll&#xD;&#xA;del Eco.WorldGenerator.dll&#xD;&#xA;del EcoServer.dll&#xD;&#xA;del *.xml&#xD;&#xA;del *.pdb&#xD;&#xA;mv Eco.RM.ElectricTakeover.dll &quot;C:\Users\Shadow\Desktop\Eco Client 10\Eco_Data\Server\Mods\Eco.RM\Electric Takeover&quot;&#xD;&#xA;mv Eco.EM.Framework.dll &quot;C:\Users\Shadow\Desktop\Eco Client 10\Eco_Data\Server\Mods\External&quot;" />
+  </Target>
 
 </Project>
