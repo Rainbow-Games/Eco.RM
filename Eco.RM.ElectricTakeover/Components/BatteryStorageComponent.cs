@@ -1,94 +1,83 @@
 ﻿using Eco.Core.Controller;
 using Eco.Core.Items;
 using Eco.Core.Utils;
-using Eco.Gameplay.Components.Storage;
 using Eco.Gameplay.Items;
-using Eco.Gameplay.Players;
-using Eco.RM.ElectricTakeover.Items;
+using Eco.RM.Items;
 using Eco.Shared.Localization;
 using Eco.Shared.Serialization;
 using Eco.Shared.Utils;
-using System.Collections.Generic;
+using Eco.Gameplay.Objects;
+using Eco.Gameplay.Components.Storage;
+using System.ComponentModel;
+using Eco.Gameplay.Players;
+using Eco.Shared.View;
 
-namespace Eco.RM.ElectricTakeover.Components
+namespace Eco.RM.Components
 {
-    [Serialized, AutogenClass, Priority(PriorityAttribute.Low)]
-    [LocDescription("Battery storage for a object."), LocDisplayName("Battery Storage")]
-    [Ecopedia("[RM] Electric Takeover", "Batteries", true, true, "Battery Storage"), CreateComponentTabLoc("Battery Storage"), HasIcon("BatterySupplyComponent")]
-    public abstract class BatteryStorageComponent : PublicStorageComponent
+    [Serialized]
+    [AutogenClass]
+    [RequireComponent(typeof(PublicStorageComponent))]
+    [LocDisplayName("Battery Storage")]
+    [LocDescription("Battery storage for a object.")]
+    [HasIcon("BatteryStorageComponentIcon")]
+    [CreateComponentTabLoc("Battery Storage")]
+    [Ecopedia("[RM] Stored Power", "Batteries", true, true, "Battery Storage")]
+    public partial class BatteryStorageComponent : WorldObjectComponent, INotifyPropertyChanged
     {
-        [LocDisplayName("Capacity"), LocDescription("The total capacity of all batteries inserted.")]
-        [Serialized, Autogen] public float TotalBatteryMaxCharge { get; private set; } = 0;
-
-        [LocDisplayName("Charge"), LocDescription("The current charge of the storage depending on inserted battery charges.")]
-        [Autogen] public float TotalBatteryCharge => GetCharge();
-
-        [LocDisplayName("Max Charge Rate"), LocDescription("The max charge rate of the storage. Add higher teir batteries to increase.")]
-        [Serialized, Autogen] public float TotalBatteryMaxChargeRate { get; private set; } = 0;
+        [LocDisplayName("Max Charge"), LocDescription("The total capacity of all batteries inserted.")]
+        [SyncToView(SyncFlags.UnreliableChangeNotification), Autogen, ReadOnly(true), Notify] protected string MaxChargeDisplay => Localizer.DoStr($"{Math.Floor(MaxCharge)} Watt Hours");
 
         [LocDisplayName("Max Discharge Rate"), LocDescription("The max discharge rate of the storage. Add higher teir batteries to increase.")]
-        [Serialized, Autogen] public float TotalBatteryMaxDischargeRate { get; private set; } = 0;
+        [SyncToView(SyncFlags.UnreliableChangeNotification), Autogen, ReadOnly(true), Notify] protected string MaxDischargeRateDisplay => Localizer.DoStr($"{Math.Floor(MaxDischargeRate)} Watts");
 
-        [Serialized] public Dictionary<BatteryItem, ItemStack> Batteries { get; private set; } = new Dictionary<BatteryItem, ItemStack>();
+        [LocDisplayName("Max Charge Rate"), LocDescription("The max charge rate of the storage. Add higher teir batteries to increase.")]
+        [SyncToView(SyncFlags.UnreliableChangeNotification), Autogen, ReadOnly(true), Notify] protected string MaxChargeRateDisplay => Localizer.DoStr($"{Math.Floor(MaxChargeRate)} Watts");
 
-        public static readonly ThreadSafeAction<BatterySupplyComponent> ChargeChanged = new(); 
+        [LocDisplayName("Current Charge"), LocDescription("The current charge of the storage depending on inserted battery charges.")]
+        [SyncToView(SyncFlags.UnreliableChangeNotification), Autogen, ReadOnly(true), Notify] protected string CurrentChargeDisplay => Localizer.DoStr($"{Math.Floor(CurrentCharge)} Watt Hours");
 
-        public new void Initialize(int slots)
+        [LocDisplayName("Transfer Rate"), LocDescription("The energy transfer rate of the storage in watts.")]
+        [SyncToView(SyncFlags.UnreliableChangeNotification), Autogen, ReadOnly(true), Notify] protected string EnergyTransferRateDisplay => Localizer.DoStr($"{Math.Floor(EnergyTransferRate)} Watts");
+
+        public float MaxCharge => Inventory.NonEmptyStacks.Sum((itemStack) => ((BatteryItem)itemStack.Item).MaxCharge);
+        public float MaxDischargeRate => Inventory.NonEmptyStacks.Sum((itemStack) => ((BatteryItem)itemStack.Item).MaxDischargeRate);
+        public float MaxChargeRate => Inventory.NonEmptyStacks.Sum((itemStack) => ((BatteryItem)itemStack.Item).MaxChargeRate);
+        public float CurrentCharge => Inventory.NonEmptyStacks.Sum((itemStack) => ((BatteryItem)itemStack.Item).CurrentCharge);
+        [Serialized] public float EnergyTransferRate { get; private set; }
+
+        public Inventory Inventory => Parent.GetOrCreateComponent<PublicStorageComponent>().Inventory;
+        float energyChangeLastTick;
+
+        public ThreadSafeAction OnStateChanged { get; set; } = new ThreadSafeAction();
+
+        public void Initialize(int slots)
         {
-            base.Initialize(slots);
-            base.Inventory.AddInvRestriction(new TagRestriction("Battery"));
-            base.Inventory.SetOwner(Parent);
-            base.Inventory.OnChanged.Add(OnInventoryChanged);
+            Parent.GetOrCreateComponent<PublicStorageComponent>().Initialize(slots);
+            Inventory.AddInvRestriction(new TagRestriction(new Tag[] {TagManager.GetOrMake("Battery")}));
+            Inventory.SetOwner(Parent);
         }
-        public void OnInventoryChanged(User user)
+        public float Charge(float watts)
         {
-            if (Batteries.Count > base.Inventory.NonEmptyStacks.Count())
-            {
-                var batteries = Batteries;
-                base.Inventory.NonEmptyStacks.ForEach(battery => batteries.Remove((BatteryItem)battery.Item));
-                if (!batteries.Any()) return;
-                OnBatteryRemoved(batteries.First());
-            }
-            if (Batteries.Count < base.Inventory.NonEmptyStacks.Count())
-            {
-                var batteries = base.Inventory.NonEmptyStacks;
-            }
+            var og_watts = watts;
+            Inventory.NonEmptyStacks.ForEach((itemStack) => {
+                watts -= ((BatteryItem)itemStack.Item).Charge(watts);
+            });
+            energyChangeLastTick += og_watts - watts;
+            return og_watts - watts;
         }
-        public void OnBatteryAdded(ItemStack batteryStack)
+        public float Discharge(float watts)
         {
-            var battery = (BatteryItem)batteryStack.Item;
-            Batteries.Add((BatteryItem)batteryStack.Item, batteryStack);
-            TotalBatteryMaxCharge += battery.MaxCharge;
-            TotalBatteryMaxChargeRate += battery.MaxChargeRate;
-            TotalBatteryMaxDischargeRate += battery.MaxDischargeRate;
+            var og_watts = watts;
+            Inventory.NonEmptyStacks.ForEach((itemStack) => {
+                watts -= ((BatteryItem)itemStack.Item).Discharge(watts);
+            });
+            energyChangeLastTick -= og_watts - watts;
+            return og_watts - watts;
         }
-        public void OnBatteryRemoved(KeyValuePair<BatteryItem, ItemStack> battery)
+        public override void LateTick()
         {
-            TotalBatteryMaxCharge -= battery.Key.MaxCharge;
-            TotalBatteryMaxChargeRate -= battery.Key.MaxChargeRate;
-            TotalBatteryMaxDischargeRate -= battery.Key.MaxDischargeRate;
-            Batteries.Remove(battery.Key);
-        }
-        public float GetCharge()
-        {
-            var totalCharge = 0f;
-            Batteries.ForEach(battery => totalCharge += battery.Key.CurrentCharge);
-            return totalCharge;
-        }
-        public float ChangeCharge(float value)
-        {
-            if (value == 0) return 0;
-            if (value < 0)
-            {
-                value = Math.Abs(value);
-                if (value > TotalBatteryMaxDischargeRate) value = TotalBatteryMaxDischargeRate;
-                if (value > TotalBatteryCharge) value = TotalBatteryCharge;
-            }
-            if (value > 0)
-            {
-                if (value > TotalBatteryMaxChargeRate) value = TotalBatteryMaxChargeRate;
-                if (value > TotalBatteryCharge) value = TotalBatteryCharge;
-            }
+            EnergyTransferRate = energyChangeLastTick;
+            energyChangeLastTick = 0;
         }
     }
 }

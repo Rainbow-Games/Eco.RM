@@ -1,8 +1,7 @@
-﻿using Eco.Gameplay.Items;
-using Eco.Shared.Localization;
+﻿using Eco.Shared.Localization;
 using Eco.Shared.Serialization;
 
-namespace Eco.RM.ElectricTakeover.Items
+namespace Eco.RM.Items
 {
     [Serialized]
     [LocDisplayName("Small Battery")]
@@ -11,6 +10,6 @@ namespace Eco.RM.ElectricTakeover.Items
         public override float MaxCharge => 40;
         public override float MaxChargeRate => 20;
         public override float MaxDischargeRate => 80;
-
+        public override float InitialCharge => 10;
     }
 }

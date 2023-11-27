@@ -12,14 +12,14 @@ namespace Eco.RM.Items
     [Serialized]
     [RequireComponent(typeof(PropertyAuthComponent))]
     [RequireComponent(typeof(BatteryChargerComponent))]
-    public partial class TestingObject : WorldObject, IRepresentsItem
+    public partial class BatteryChargerObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(TestingItem);
-        public override LocString DisplayName   => Localizer.DoStr("Test Object");
+        public virtual Type RepresentedItemType => typeof(BatteryChargerItem);
+        public override LocString DisplayName   => Localizer.DoStr("Battery Charger");
 
-        static TestingObject()
+        static BatteryChargerObject()
         {
-            AddOccupancy<TestingObject>(new List<BlockOccupancy>(){
+            AddOccupancy<BatteryChargerObject>(new List<BlockOccupancy>(){
                 new(new Vector3i(0, 0, 0)),
             });
         }
@@ -31,7 +31,7 @@ namespace Eco.RM.Items
     }
 
     [Serialized]
-    [LocDisplayName("Testing Item")]
-    [LocDescription("Object used for testing.")]
-    public partial class TestingItem : WorldObjectItem<TestingObject> { }
+    [LocDisplayName("Battery Charger")]
+    [LocDescription("Object used for charging batteries.")]
+    public partial class BatteryChargerItem : WorldObjectItem<BatteryChargerObject> { }
 }
