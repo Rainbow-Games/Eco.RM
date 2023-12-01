@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Eco.RM.Framework\Eco.RM.Framework.csproj" />
+    <ProjectReference Include="..\Eco.RM.StoredEnergy\Eco.RM.StoredEnergy.csproj" />
+  </ItemGroup>
+
+</Project>

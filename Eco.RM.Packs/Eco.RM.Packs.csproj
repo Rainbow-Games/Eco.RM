@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Eco.RM.Packs.ElectricTakeover\Eco.RM.Packs.ElectricTakeover.csproj" />
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="mv &quot;$(TargetDir)\Eco.RM.Packs.ElectricTakeover.dll&quot; &quot;D:\Pre-Publish\Eco.RM.ModPack\Mods\Raynbo Mods&quot;&#xD;&#xA;mv &quot;$(TargetDir)\Eco.RM.StoredEnergy.dll&quot; &quot;D:\Pre-Publish\Eco.RM.ModPack\Mods\Raynbo Mods&quot;&#xD;&#xA;mv &quot;$(TargetDir)\Eco.RM.Framework.dll&quot; &quot;D:\Pre-Publish\Eco.RM.ModPack\Mods\Raynbo Mods&quot;" />
+  </Target>
+
+</Project>

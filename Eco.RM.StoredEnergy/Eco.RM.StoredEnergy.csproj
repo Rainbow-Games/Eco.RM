@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
@@ -34,7 +34,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="..\.editorconfig" Link=".editorconfig" />
+    <ProjectReference Include="..\Eco.RM.Framework\Eco.RM.Framework.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -78,9 +78,5 @@
       <HintPath>..\..\..\..\..\Eco.dll\EcoServer.dll</HintPath>
     </Reference>
   </ItemGroup>
-
-  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
-    <Exec Command="mv &quot;$(TargetDir)\Eco.RM.StoredEnergy.dll&quot; &quot;D:\Pre-Publish\Eco.RM.ModPack\Mods\Raynbo Mods&quot;" />
-  </Target>
 
 </Project>

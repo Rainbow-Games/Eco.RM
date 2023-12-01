@@ -2,31 +2,22 @@
 using Eco.Gameplay.Objects;
 using Eco.Shared.Localization;
 using Eco.Shared.Serialization;
-using Eco.Shared.Math;
 using Eco.Gameplay.Components.Auth;
-using Eco.Gameplay.Occupancy;
 using Eco.RM.Components;
 
 namespace Eco.RM.Items
 {
     [Serialized]
+    [RequireComponent(typeof(BatteryStorageComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
-    [RequireComponent(typeof(BatteryChargerComponent))]
     public partial class TestingObject : WorldObject, IRepresentsItem
     {
         public virtual Type RepresentedItemType => typeof(TestingItem);
         public override LocString DisplayName   => Localizer.DoStr("Test Object");
 
-        static TestingObject()
-        {
-            AddOccupancy<TestingObject>(new List<BlockOccupancy>(){
-                new(new Vector3i(0, 0, 0)),
-            });
-        }
-
         protected override void Initialize()
         {
-            GetOrCreateComponent<BatteryChargerComponent>().Initialize(3, 50);
+            GetOrCreateComponent<BatteryStorageComponent>().Initialize(3);
         }
     }
 

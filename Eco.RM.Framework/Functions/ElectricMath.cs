@@ -1,7 +1,7 @@
 ﻿using Eco.Gameplay.Objects;
 using Eco.Shared.IoC;
 
-namespace Eco.RM.Functions
+namespace Eco.RM.Framework.Functions
 {
     public static class ElectricMath
     {

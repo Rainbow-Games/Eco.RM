@@ -6,4 +6,46 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Eco.Core">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Gameplay">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Gameplay.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Integrations.Steamworks">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Integrations.Steamworks.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.ModKit">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.ModKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Plugins">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Shared">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Simulation">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Stats">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Stats.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Twitch.Shared">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.Twitch.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.WebServer">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.WebServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.World">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.WorldGenerator">
+      <HintPath>..\..\..\..\..\Eco.dll\Eco.WorldGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="EcoServer">
+      <HintPath>..\..\..\..\..\Eco.dll\EcoServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

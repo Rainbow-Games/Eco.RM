@@ -2,10 +2,11 @@
 using Eco.Gameplay.Items;
 using Eco.Gameplay.Systems.NewTooltip;
 using Eco.Gameplay.Systems.NewTooltip.TooltipLibraryFiles;
-using Eco.RM.Functions;
+using Eco.RM.Framework.Functions;
 using Eco.RM.Items;
 using Eco.Shared.Items;
 using Eco.Shared.Localization;
+using System.Runtime.CompilerServices;
 
 namespace Eco.RM.Tooltips
 {
@@ -14,11 +15,10 @@ namespace Eco.RM.Tooltips
     {
         public static void Initialize() { }
 
-        [TooltipAffectedBy(typeof(BatteryItem), true)]
-        [NewTooltip(CacheAs.SubType, 10, overrideType: typeof(BatteryItem))]
-        public static LocString CurrentCharge(Type batteryItemType)
+        [TooltipAffectedBy(nameof(BatteryItem.CurrentCharge))]
+        [NewTooltip(cacheMode: CacheAs.Instance, flags:TTFlags.ForceInstantUpdate, overrideType: typeof(BatteryItem))]
+        public static LocString CurrentCharge(BatteryItem batteryItem)
         {
-            var batteryItem = (BatteryItem)Item.Get(batteryItemType);
             var s = new LocStringBuilder();
             if (batteryItem.CurrentCharge == 0) s.AppendLine(Localizer.DoStr("Charge Depleted"));
             if (batteryItem.CurrentCharge == batteryItem.MaxCharge) s.AppendLine(Localizer.DoStr("Fully Charged"));
