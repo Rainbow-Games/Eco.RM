@@ -1,10 +1,9 @@
 ﻿using Eco.Shared.Serialization;
 
-namespace Eco.RM.Interfaces
+namespace Eco.RM.Interfaces;
+
+[Serialized]
+public interface IElectricConsumer
 {
-    [Serialized]
-    public interface IElectricConsumer
-    {
-        public double ConsumptionRate { get; }
-    }
+    public double ConsumptionRate { get; }
 }

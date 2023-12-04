@@ -1,6 +1,7 @@
 # Mod Information
 
-## Eco.RM.StoredEnergy
+## Eco.RM.Electric
+
 
 # Code Style
 ## Namespaces
