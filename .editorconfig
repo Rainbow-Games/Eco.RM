@@ -1,7 +1,36 @@
-﻿[*.cs]
+# To learn more about .editorconfig see https://aka.ms/editorconfigdocs
+###############################
+# Core EditorConfig Options   #
+###############################
 
-# CA1416: Validate platform compatibility
-dotnet_diagnostic.CA1416.severity = none
+# See .editorconfig file in root of source control directory for shared settings
+
+
+[*.cs]
+
+# SA1642: Constructor summary documentation should begin with standard text
+dotnet_diagnostic.SA1642.severity = none
+
+# SA1122: Use string.Empty for empty strings
+dotnet_diagnostic.SA1122.severity = none
+
+# SA1100: Do not prefix calls with base unless local implementation exists
+dotnet_diagnostic.SA1100.severity = none
+
+# CA1810: Initialize reference type static fields inline
+dotnet_diagnostic.CA1810.severity = none
+
+# CA1822: Mark members as static
+dotnet_diagnostic.CA1822.severity = none
+
+# CA1031: Do not catch general exception types
+dotnet_diagnostic.CA1031.severity = none
+
+# SA1114: Parameter list should follow declaration
+dotnet_diagnostic.SA1114.severity = none
+
+# SA1100: Do not prefix calls with base unless local implementation exists
+dotnet_diagnostic.SA1100.severity = none
 csharp_indent_labels = one_less_than_current
 csharp_using_directive_placement = outside_namespace:silent
 csharp_prefer_simple_using_statement = true:suggestion
@@ -19,6 +48,9 @@ csharp_style_expression_bodied_accessors = true:silent
 csharp_style_expression_bodied_lambdas = true:silent
 csharp_style_expression_bodied_local_functions = false:silent
 csharp_space_around_binary_operators = before_and_after
+csharp_style_prefer_null_check_over_type_check = true:suggestion
+csharp_style_conditional_delegate_call = true:suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true:suggestion
 
 [*.{cs,vb}]
 #### Naming styles ####
@@ -79,3 +111,4 @@ dotnet_style_object_initializer = true:suggestion
 dotnet_style_prefer_collection_expression = true:suggestion
 dotnet_style_collection_initializer = true:suggestion
 dotnet_style_prefer_simplified_boolean_expressions = true:suggestion
+dotnet_diagnostic.CA1416.severity = none

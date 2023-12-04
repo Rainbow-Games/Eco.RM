@@ -1,0 +1,59 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>disable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\..\Elixer Solutions\EM-Framework\Eco.EM.Framework\Eco.EM.Framework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Eco.Core">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Gameplay">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Gameplay.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.ModKit">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.ModKit.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Mods">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Mods.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Networking.ENet">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Networking.ENet.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Plugins">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Plugins.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Shared">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Simulation">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Simulation.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.Stats">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.Stats.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.WebServer">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.WebServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.World">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.World.dll</HintPath>
+    </Reference>
+    <Reference Include="Eco.WorldGenerator">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\Eco.WorldGenerator.dll</HintPath>
+    </Reference>
+    <Reference Include="EcoServer">
+      <HintPath>C:\Users\Shadow\Downloads\EcoModKit_v0.10.0.0-beta-staging-2821\ReferenceAssemblies\EcoServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd $(TargetDir)&#xD;&#xA;mv &quot;Eco.RM.Electric.dll&quot; &quot;W:\Raynbo.Co\Raynbo Mods\Eco\Mods\Raynbo Mods\Eco.RM.Electric\Eco.RM.Electric.dll&quot;&#xD;&#xA;mv &quot;Eco.EM.Framework.dll&quot; &quot;W:\Raynbo.Co\Raynbo Mods\Eco\Mods\Elixr Mods\Eco.EM.Framework.dll&quot;" />
+  </Target>
+
+</Project>
