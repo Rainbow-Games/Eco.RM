@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "ZXLTw2jrMoxwhYticbNS0qY9e29T6n5UEyiJnAh16Oc48YsS5Ky9a0JgMMFiZAqXywkFuJSiZiSxgsxWfhkZAw==",
+  "success": true,
+  "projectFilePath": "C:\\Eco\\Mods\\Eco.RM\\Eco.RM.PowerRework\\Eco.RM.PowerRework.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rainb\\.nuget\\packages\\eco.referenceassemblies\\0.10.2.1-beta-release-647\\eco.referenceassemblies.0.10.2.1-beta-release-647.nupkg.sha512"
+  ],
+  "logs": []
+}

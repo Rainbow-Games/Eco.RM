@@ -1,0 +1,144 @@
+{
+  "version": 3,
+  "targets": {
+    "net7.0": {
+      "Eco.ReferenceAssemblies/0.10.2.1-beta-release-647": {
+        "type": "package",
+        "compile": {
+          "lib/net7.0/Eco.Core.dll": {},
+          "lib/net7.0/Eco.Gameplay.dll": {},
+          "lib/net7.0/Eco.ModKit.dll": {},
+          "lib/net7.0/Eco.Mods.dll": {},
+          "lib/net7.0/Eco.Networking.ENet.dll": {},
+          "lib/net7.0/Eco.Plugins.dll": {},
+          "lib/net7.0/Eco.ReferenceAssemblies.dll": {},
+          "lib/net7.0/Eco.Shared.dll": {},
+          "lib/net7.0/Eco.Simulation.dll": {},
+          "lib/net7.0/Eco.Stats.dll": {},
+          "lib/net7.0/Eco.WebServer.dll": {},
+          "lib/net7.0/Eco.World.dll": {},
+          "lib/net7.0/Eco.WorldGenerator.dll": {},
+          "lib/net7.0/EcoServer.dll": {}
+        },
+        "runtime": {
+          "lib/net7.0/Eco.Core.dll": {},
+          "lib/net7.0/Eco.Gameplay.dll": {},
+          "lib/net7.0/Eco.ModKit.dll": {},
+          "lib/net7.0/Eco.Mods.dll": {},
+          "lib/net7.0/Eco.Networking.ENet.dll": {},
+          "lib/net7.0/Eco.Plugins.dll": {},
+          "lib/net7.0/Eco.ReferenceAssemblies.dll": {},
+          "lib/net7.0/Eco.Shared.dll": {},
+          "lib/net7.0/Eco.Simulation.dll": {},
+          "lib/net7.0/Eco.Stats.dll": {},
+          "lib/net7.0/Eco.WebServer.dll": {},
+          "lib/net7.0/Eco.World.dll": {},
+          "lib/net7.0/Eco.WorldGenerator.dll": {},
+          "lib/net7.0/EcoServer.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Eco.ReferenceAssemblies/0.10.2.1-beta-release-647": {
+      "sha512": "11RIyJUhOEYl20hBhZF8xH8VAMUaKviXaCvnR2RJtqZKmTEpYKBYUuu9TJHOVnSV+LE1/MNADZBlbRPy8hD5tA==",
+      "type": "package",
+      "path": "eco.referenceassemblies/0.10.2.1-beta-release-647",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "NugetIcon.png",
+        "eco.referenceassemblies.0.10.2.1-beta-release-647.nupkg.sha512",
+        "eco.referenceassemblies.nuspec",
+        "lib/net7.0/Eco.Core.dll",
+        "lib/net7.0/Eco.Gameplay.dll",
+        "lib/net7.0/Eco.ModKit.dll",
+        "lib/net7.0/Eco.Mods.dll",
+        "lib/net7.0/Eco.Networking.ENet.dll",
+        "lib/net7.0/Eco.Plugins.dll",
+        "lib/net7.0/Eco.ReferenceAssemblies.dll",
+        "lib/net7.0/Eco.Shared.dll",
+        "lib/net7.0/Eco.Simulation.dll",
+        "lib/net7.0/Eco.Stats.dll",
+        "lib/net7.0/Eco.WebServer.dll",
+        "lib/net7.0/Eco.World.dll",
+        "lib/net7.0/Eco.WorldGenerator.dll",
+        "lib/net7.0/EcoServer.dll"
+      ]
+    }
+  },
+  "projectFileDependencyGroups": {
+    "net7.0": [
+      "Eco.ReferenceAssemblies >= 0.10.2.1-beta-release-647"
+    ]
+  },
+  "packageFolders": {
+    "C:\\Users\\rainb\\.nuget\\packages\\": {}
+  },
+  "project": {
+    "version": "1.0.0",
+    "restore": {
+      "projectUniqueName": "C:\\Eco\\Mods\\Eco.RM\\Eco.RM.PowerRework\\Eco.RM.PowerRework.csproj",
+      "projectName": "Eco.RM.PowerRework",
+      "projectPath": "C:\\Eco\\Mods\\Eco.RM\\Eco.RM.PowerRework\\Eco.RM.PowerRework.csproj",
+      "packagesPath": "C:\\Users\\rainb\\.nuget\\packages\\",
+      "outputPath": "C:\\Eco\\Mods\\Eco.RM\\Eco.RM.PowerRework\\obj\\",
+      "projectStyle": "PackageReference",
+      "configFilePaths": [
+        "C:\\Users\\rainb\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+      ],
+      "originalTargetFrameworks": [
+        "net7.0"
+      ],
+      "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "https://api.nuget.org/v3/index.json": {}
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "projectReferences": {}
+        }
+      },
+      "warningProperties": {
+        "warnAsError": [
+          "NU1605"
+        ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
+      }
+    },
+    "frameworks": {
+      "net7.0": {
+        "targetAlias": "net7.0",
+        "dependencies": {
+          "Eco.ReferenceAssemblies": {
+            "target": "Package",
+            "version": "[0.10.2.1-beta-release-647, )"
+          }
+        },
+        "imports": [
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "net48",
+          "net481"
+        ],
+        "assetTargetFallback": true,
+        "warn": true,
+        "frameworkReferences": {
+          "Microsoft.NETCore.App": {
+            "privateAssets": "all"
+          }
+        },
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202\\RuntimeIdentifierGraph.json"
+      }
+    }
+  }
+}

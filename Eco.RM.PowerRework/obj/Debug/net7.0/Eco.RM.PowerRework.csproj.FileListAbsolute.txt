@@ -1,0 +1,12 @@
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\bin\Debug\net7.0\Eco.RM.PowerRework.deps.json
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\bin\Debug\net7.0\Eco.RM.PowerRework.dll
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\bin\Debug\net7.0\Eco.RM.PowerRework.pdb
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\Eco.RM.PowerRework.csproj.AssemblyReference.cache
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\Eco.RM.PowerRework.GeneratedMSBuildEditorConfig.editorconfig
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\Eco.RM.PowerRework.AssemblyInfoInputs.cache
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\Eco.RM.PowerRework.AssemblyInfo.cs
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\Eco.RM.PowerRework.csproj.CoreCompileInputs.cache
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\Eco.RM.PowerRework.dll
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\refint\Eco.RM.PowerRework.dll
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\Eco.RM.PowerRework.pdb
+C:\Eco\Mods\Eco.RM\Eco.RM.PowerRework\obj\Debug\net7.0\ref\Eco.RM.PowerRework.dll
